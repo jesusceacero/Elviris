@@ -1,0 +1,28 @@
+package com.salesianos.dam.Elviris.model
+
+import java.time.LocalDate
+import java.util.*
+import javax.persistence.*
+
+@Entity
+data class Evento(
+        var titulo : String,
+        var descripcion : String,
+        var aforo : Int,
+        var fecha : LocalDate,
+        var foto : String,
+        @Id @GeneratedValue val id: UUID? = null,
+        @ManyToMany(fetch = FetchType.LAZY)
+        @JoinTable(name = "evento_user",
+                joinColumns = [JoinColumn(name = "evento_id", referencedColumnName = "id")],
+                inverseJoinColumns = [JoinColumn(name = "user_id", referencedColumnName = "id")])
+        var usuarios : MutableList<User> = mutableListOf()
+) {
+        fun addUser(u: User) {
+                usuarios.add(u)
+        }
+
+        fun deleteUser(u: User) {
+                usuarios.remove(u)
+        }
+}

@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="6dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#FDEBD8">
+
+            <ImageView
+                android:id="@+id/imageViewCartelReserva"
+                android:layout_width="100dp"
+                android:layout_height="150dp"
+                android:layout_marginStart="8dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:srcCompat="@tools:sample/avatars" />
+
+            <TextView
+                android:id="@+id/textViewTituloReserva"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:textColor="#000000"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/imageViewCartelReserva"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/imageViewReserva"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginBottom="8dp"
+                app:layout_constraintBottom_toTopOf="@+id/buttonReservarReserva"
+                app:layout_constraintStart_toEndOf="@+id/imageViewCartelReserva"
+                app:srcCompat="@drawable/ic_team" />
+
+            <TextView
+                android:id="@+id/textViewAforoReserva"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:textColor="#000000"
+                app:layout_constraintStart_toEndOf="@+id/imageViewReserva"
+                app:layout_constraintTop_toTopOf="@+id/imageViewReserva" />
+
+            <TextView
+                android:id="@+id/textViewFechaReserva"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:textColor="#8F8F8F"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/imageViewReserva" />
+
+            <Button
+                android:id="@+id/buttonReservarReserva"
+                style="@style/Widget.AppCompat.Button.Small"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:text="Cancelar Reserva"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/imageViewCartelReserva" />
+
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/reservaCancelarProgressBar"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageViewReserva"
+                app:lottie_autoPlay="true"
+                app:lottie_loop="true"
+                app:lottie_rawRes="@raw/beer_icon"
+                app:lottie_speed="2" />
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="/"
+                android:textColor="#000000"
+                app:layout_constraintStart_toEndOf="@+id/textViewAforoReserva"
+                app:layout_constraintTop_toTopOf="@+id/imageViewReserva" />
+
+            <TextView
+                android:id="@+id/textViewCountReserva"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#000000"
+                app:layout_constraintStart_toEndOf="@+id/textView"
+                app:layout_constraintTop_toTopOf="@+id/imageViewReserva" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,12 +1,9 @@
 package com.salesianos.dam.Elviris.model
 
 import com.salesianos.dam.Elviris.upload.ImgurImageAttribute
-import org.hibernate.annotations.Generated
-import org.hibernate.annotations.GenerationTime
 import org.springframework.security.core.GrantedAuthority
 import org.springframework.security.core.authority.SimpleGrantedAuthority
 import org.springframework.security.core.userdetails.UserDetails
-import java.time.LocalDateTime
 import java.util.*
 import javax.persistence.*
 import kotlin.collections.HashSet
@@ -14,7 +11,7 @@ import kotlin.collections.HashSet
 
 @Entity
 @SequenceGenerator(name="seq", initialValue=1)
-data class User(
+data class MyUser(
 
         @Column(nullable = false, unique = true)
         private var username: String,
@@ -60,7 +57,7 @@ data class User(
     override fun equals(other: Any?): Boolean {
         if (this === other)
             return true
-        if (other === null || other !is User)
+        if (other === null || other !is MyUser)
             return false
         if (this::class != other::class)
             return false

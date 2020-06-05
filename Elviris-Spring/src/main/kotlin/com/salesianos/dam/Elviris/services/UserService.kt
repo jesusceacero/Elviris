@@ -3,7 +3,7 @@ package com.salesianos.dam.Elviris.services
 
 import com.salesianos.dam.Elviris.DTOs.*
 import com.salesianos.dam.Elviris.model.Evento
-import com.salesianos.dam.Elviris.model.User
+import com.salesianos.dam.Elviris.model.MyUser
 import com.salesianos.dam.Elviris.repository.UserRepository
 import com.salesianos.dam.Elviris.upload.ImgurImageAttribute
 import com.salesianos.dam.Elviris.upload.ImgurImageNotFoundException
@@ -24,12 +24,12 @@ class UserService (
         private val imageStorageService: ImgurStorageService
 ) {
 
-    fun create(newUser : CreateUserDTO): Optional<User> {
+    fun create(newUser : CreateUserDTO): Optional<MyUser> {
         if (findByUsername(newUser.username).isPresent)
             return Optional.empty()
         return Optional.of(
                 with(newUser) {
-                    repo.save(User(username, encoder.encode(password), fullName, "USER"))
+                    repo.save(MyUser(username, encoder.encode(password), fullName, "USER"))
                 }
 
         )

@@ -2,14 +2,10 @@ package com.salesianos.dam.Elviris.controller
 
 
 import com.salesianos.dam.Elviris.DTOs.*
-import com.salesianos.dam.Elviris.model.User
-import com.salesianos.dam.Elviris.repository.EventoRepository
-import com.salesianos.dam.Elviris.repository.UserRepository
 import com.salesianos.dam.Elviris.services.EventoService
 import com.salesianos.dam.Elviris.services.UserService
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
-import org.springframework.security.core.annotation.AuthenticationPrincipal
 import org.springframework.security.crypto.password.PasswordEncoder
 import org.springframework.stereotype.Controller
 import org.springframework.web.bind.annotation.*

@@ -1,7 +1,6 @@
 package com.salesianos.dam.Elviris.DTOs
 
-import com.salesianos.dam.Elviris.model.Evento
-import com.salesianos.dam.Elviris.model.User
+import com.salesianos.dam.Elviris.model.MyUser
 import java.util.*
 
 data class UserDTO (
@@ -13,7 +12,7 @@ data class UserDTO (
         var foto : String? ? = null
 )
 
-fun User.toUserDTO() : UserDTO{
+fun MyUser.toUserDTO() : UserDTO{
     var lista : MutableList<String> = mutableListOf()
     for (i  in eventos){
         lista.add(i.id.toString())
@@ -21,4 +20,4 @@ fun User.toUserDTO() : UserDTO{
     return UserDTO(username, fullName, roles.joinToString(),lista, id,foto?.id)
 }
 
-fun User.toUserLoginDTO() = UserDTO(username, fullName, roles.joinToString(), mutableListOf(), id,foto?.id)
+fun MyUser.toUserLoginDTO() = UserDTO(username, fullName, roles.joinToString(), mutableListOf(), id,foto?.id)

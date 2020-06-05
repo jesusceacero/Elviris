@@ -17,13 +17,13 @@ data class Evento(
         @JoinTable(name = "evento_user",
                 joinColumns = [JoinColumn(name = "evento_id", referencedColumnName = "id")],
                 inverseJoinColumns = [JoinColumn(name = "user_id", referencedColumnName = "id")])
-        var usuarios : MutableList<User> = mutableListOf()
+        var usuarios : MutableList<MyUser> = mutableListOf()
 ) {
-        fun addUser(u: User) {
+        fun addUser(u: MyUser) {
                 usuarios.add(u)
         }
 
-        fun deleteUser(u: User) {
+        fun deleteUser(u: MyUser) {
                 usuarios.remove(u)
         }
 }

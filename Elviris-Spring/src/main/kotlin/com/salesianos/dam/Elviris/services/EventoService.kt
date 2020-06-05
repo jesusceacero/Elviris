@@ -3,7 +3,7 @@ package com.salesianos.dam.Elviris.services
 import com.salesianos.dam.Elviris.DTOs.EventoDTO
 import com.salesianos.dam.Elviris.DTOs.toEventoDTO
 import com.salesianos.dam.Elviris.model.Evento
-import com.salesianos.dam.Elviris.model.User
+import com.salesianos.dam.Elviris.model.MyUser
 import com.salesianos.dam.Elviris.repository.EventoRepository
 import com.salesianos.dam.Elviris.upload.*
 import org.springframework.http.HttpStatus
@@ -39,7 +39,7 @@ class EventoService (
 
     fun save(e : Evento) = eventoRepository.save(e)
 
-    fun eventosReservados(u : User) : List<EventoDTO> {
+    fun eventosReservados(u : MyUser) : List<EventoDTO> {
         var list =eventoRepository.eventosReservados(u).map { even -> even.toEventoDTO() }
 
         for (e in list){

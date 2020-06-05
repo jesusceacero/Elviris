@@ -2,7 +2,6 @@ package com.salesianos.dam.Elviris.DTOs
 
 import com.fasterxml.jackson.annotation.JsonFormat
 import com.salesianos.dam.Elviris.model.Evento
-import com.salesianos.dam.Elviris.model.User
 import java.time.LocalDate
 import java.util.*
 

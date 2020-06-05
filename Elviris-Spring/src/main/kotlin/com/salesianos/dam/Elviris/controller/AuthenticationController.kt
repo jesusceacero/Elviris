@@ -4,7 +4,7 @@ package com.salesianos.dam.Elviris.controller
 import com.salesianos.dam.Elviris.DTOs.UserDTO
 import com.salesianos.dam.Elviris.DTOs.toUserDTO
 import com.salesianos.dam.Elviris.DTOs.toUserLoginDTO
-import com.salesianos.dam.Elviris.model.User
+import com.salesianos.dam.Elviris.model.MyUser
 import com.salesianos.dam.Elviris.repository.UserRepository
 import com.salesianos.dam.Elviris.security.jwt.JwtTokenProvider
 import com.salesianos.dam.Elviris.services.UserService
@@ -40,7 +40,7 @@ class AuthenticationController(
 
         SecurityContextHolder.getContext().authentication = authentication
 
-        val user = authentication.principal as User
+        val user = authentication.principal as MyUser
         val jwtToken = jwtTokenProvider.generateToken(authentication)
 
         return JwtUserResponse(jwtToken, user.toUserLoginDTO())
@@ -49,7 +49,7 @@ class AuthenticationController(
 
     @PreAuthorize("isAuthenticated()")
     @GetMapping("/user/me")
-    fun me(@AuthenticationPrincipal user : User) = userService.userURL(userService.usuariosId(user.id!!).toUserDTO())
+    fun me(@AuthenticationPrincipal myUser : MyUser) = userService.userURL(userService.usuariosId(myUser.id!!).toUserDTO())
 
 
 

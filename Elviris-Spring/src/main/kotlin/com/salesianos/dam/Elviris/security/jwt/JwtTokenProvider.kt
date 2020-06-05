@@ -1,6 +1,6 @@
 package com.salesianos.dam.Elviris.security.jwt
 
-import com.salesianos.dam.Elviris.model.User
+import com.salesianos.dam.Elviris.model.MyUser
 import io.jsonwebtoken.*
 import io.jsonwebtoken.security.Keys
 import io.jsonwebtoken.security.SignatureException
@@ -29,16 +29,16 @@ class JwtTokenProvider() {
     private val logger : Logger = LoggerFactory.getLogger(JwtTokenProvider::class.java)
 
     fun generateToken(authentication : Authentication) : String {
-        val user : User = authentication.principal as User
+        val myUser : MyUser = authentication.principal as MyUser
         val tokenExpirationDate = Date(System.currentTimeMillis() + (jwtDuracionTokenEnSegundos * 1000))
         return Jwts.builder()
                 .signWith(Keys.hmacShaKeyFor(jwtSecreto.toByteArray()), SignatureAlgorithm.HS512)
                 .setHeaderParam("typ", TOKEN_TYPE)
-                .setSubject(user.id.toString())
+                .setSubject(myUser.id.toString())
                 .setExpiration(tokenExpirationDate)
                 .setIssuedAt(Date())
-                .claim("fullname", user.fullName)
-                .claim("roles", user.roles.joinToString())
+                .claim("fullname", myUser.fullName)
+                .claim("roles", myUser.roles.joinToString())
                 .compact()
     }
 

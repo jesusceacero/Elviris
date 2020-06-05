@@ -1,16 +1,12 @@
 package com.salesianos.dam.Elviris.repository
 
 import com.salesianos.dam.Elviris.model.Evento
-import com.salesianos.dam.Elviris.model.User
-import org.hibernate.Hibernate
-import org.hibernate.tool.schema.internal.HibernateSchemaManagementTool
+import com.salesianos.dam.Elviris.model.MyUser
 import org.springframework.data.jpa.repository.JpaRepository
 import org.springframework.data.jpa.repository.Query
 import org.springframework.security.crypto.password.PasswordEncoder
 import org.springframework.stereotype.Component
-import java.time.LocalDate
 import java.util.*
-import javax.annotation.Generated
 import javax.annotation.PostConstruct
 
 interface EventoRepository : JpaRepository<Evento, UUID> {
@@ -23,11 +19,11 @@ interface EventoRepository : JpaRepository<Evento, UUID> {
     @Query("select e from Evento e left join fetch e.usuarios Order by e.fecha desc")
     fun ordenadas(): List<Evento>
 
-    @Query("select e from Evento e left join fetch e.usuarios where :user MEMBER OF e.usuarios")
-    fun eventosReservados(user:User) : List<Evento>
+    @Query("select e from Evento e left join fetch e.usuarios where :myUser MEMBER OF e.usuarios")
+    fun eventosReservados(myUser:MyUser) : List<Evento>
 
     @Query("select e from Evento e left join fetch e.usuarios")
-    fun findByUsuariosContaining(user:User) : List<Evento>
+    fun findByUsuariosContaining(myUser:MyUser) : List<Evento>
 }
 
 @Component

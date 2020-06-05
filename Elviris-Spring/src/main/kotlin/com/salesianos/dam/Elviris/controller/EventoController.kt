@@ -1,13 +1,8 @@
 package com.salesianos.dam.Elviris.controller
 
 import com.salesianos.dam.Elviris.DTOs.EventoDTO
-import com.salesianos.dam.Elviris.DTOs.UserDTO
-import com.salesianos.dam.Elviris.DTOs.UsuarioEventoDTO
 import com.salesianos.dam.Elviris.DTOs.toEventoDTO
-import com.salesianos.dam.Elviris.model.Evento
-import com.salesianos.dam.Elviris.model.User
-import com.salesianos.dam.Elviris.repository.EventoRepository
-import com.salesianos.dam.Elviris.repository.UserRepository
+import com.salesianos.dam.Elviris.model.MyUser
 import com.salesianos.dam.Elviris.services.EventoService
 import com.salesianos.dam.Elviris.services.UserService
 import org.springframework.http.HttpStatus
@@ -36,25 +31,25 @@ class EventoController(
 
     @PostMapping("/reserva/add/{id}")
     fun reservarEvento(@PathVariable id : UUID,
-                       @AuthenticationPrincipal user : User):ResponseEntity<EventoDTO>{
+                       @AuthenticationPrincipal myUser : MyUser):ResponseEntity<EventoDTO>{
         var e = eventoService.eventoID(id)
-        var u = userService.usuariosId(user.id!!)
+        var u = userService.usuariosId(myUser.id!!)
         e.addUser(u)
         return ResponseEntity.status(HttpStatus.OK).body(eventoService.save(e).toEventoDTO())
     }
 
     @PostMapping("/reserva/del/{id}")
     fun eliminarReserva(@PathVariable id : UUID,
-                        @AuthenticationPrincipal user : User): EventoDTO{
+                        @AuthenticationPrincipal myUser : MyUser): EventoDTO{
         var e = eventoService.eventoID(id)
-        e.deleteUser(user)
+        e.deleteUser(myUser)
         eventoService.save(e)
         return e.toEventoDTO()
     }
 
     @GetMapping("/reserva/me")
-    fun eventosReservados(@AuthenticationPrincipal user : User): List<EventoDTO>{
-        return eventoService.eventosReservados(user)
+    fun eventosReservados(@AuthenticationPrincipal myUser : MyUser): List<EventoDTO>{
+        return eventoService.eventosReservados(myUser)
     }
 
     @GetMapping("/{id}")

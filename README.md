@@ -9,7 +9,7 @@ Los acministradores podran hacer lo mismos que los usuarios mas las funciones de
 
 ***
 
-#### Usuarios de prueva:
+#### Usuarios de prueba:
 * [Rol : USER ](username: user@user.com, password: 123456)
 * [Rol : ADMIN ](username: admin@admin.com, password: 123456)
 

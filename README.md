@@ -21,6 +21,7 @@ Los acministradores podran hacer lo mismos que los usuarios mas las funciones de
 * [Kotlin](https://kotlinlang.org/)
 * [Android](https://www.android.com/)
 * [Postgresql](https://www.postgresql.org/)
+* [Docker](https://www.docker.com/)
 * IDE: [Idea](https://www.jetbrains.com/es-es/idea/) Necesario para arrancar la api rest (se debe arrancar desde el IDE)
 * IDE: [Android Studio](https://developer.android.com/studio) Utilizado para la programación de la App
 
@@ -35,8 +36,8 @@ Los acministradores podran hacer lo mismos que los usuarios mas las funciones de
 
 #### Usar la Api Rest:
 * La aplicación esta subida api esta subida a heroku para que se puedra provar la app de android directamente.
-* Para la prueva de dicha api y app en local, la aplicación esta subida al repositorio utilizando la base de datos h2 de Spring. 
-* Debemos cambiar la URL BASE de la App de android a http://localhost:9000 y añadir un ClientID de ingur en el application.properties.
+* Para la prueva de dicha api y app en local, debemos irnos a la carpeta raiz del proyecto y ejecutar docker-compose up -d para que se nos cree un contenedor con la base de datos de Postgresql a la que debemos conectarnos.
+* Debemos cambiar la URL BASE de la App de android por la linea comentada y añadir un ClientID de ingur en el application.properties.
 * La Api arrancara en el puerto 9000.
 
 * En la clase EventoRepository hay datos de ejemplo comentados, descomentarlos para que se auto inserten la primera vez que arrancamos la aplicación.

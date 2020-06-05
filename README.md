@@ -6,10 +6,6 @@ Los Usuarios podran registrarse y loguearse en nuestra aplicación.
 Una vez logueados podran ver el listado de eventos que el pub les ofrece, reservar un evento si es que quedan plazas y no ha pasado la fecha, ver su listado reservas y su perfil (Pudiendo cambiar su foto de usuario).
 Los acministradores podran hacer lo mismos que los usuarios mas las funciones de administrador(ver detalle de los eventos con un listado de los usuarios reservados, editar eventos, añadir eventos y eliminar eventos).
 
-La aplicación esta subida api esta subida a heroku para que se puedra provar la app de android directamente.
-Para la prueva de dicha api y app en local, la aplicación esta subida al repositorio utilizando la base de datos h2 de Spring. 
-Debemos cambiar la URL BASE de la App de android a http://localhost:9000 y añadir un ClientID de ingur en el application.properties
-La Api arrancara en el puerto 9000
 ***
 
 #### Usuarios de prueva:
@@ -37,9 +33,12 @@ La Api arrancara en el puerto 9000
 
 
 #### Usar la Api Rest:
-* Tener mongo disponible en local e indicar las variables de entorno del proyecto en un archivo `.env`
-* Importar el proyecto en VSC abrir un nuevo terminal y ejecutar `npm start`
-* Se arranca en el puerto `localhost:3000`
+* La aplicación esta subida api esta subida a heroku para que se puedra provar la app de android directamente.
+* Para la prueva de dicha api y app en local, la aplicación esta subida al repositorio utilizando la base de datos h2 de Spring. 
+* Debemos cambiar la URL BASE de la App de android a http://localhost:9000 y añadir un ClientID de ingur en el application.properties.
+* La Api arrancara en el puerto 9000.
+
+* En la clase EventoRepository hay datos de ejemplo comentados, descomentarlos para que se auto inserten la primera vez que arrancamos la aplicación.
 
 ***
 

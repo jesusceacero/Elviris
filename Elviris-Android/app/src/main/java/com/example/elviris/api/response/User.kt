@@ -7,5 +7,6 @@ data class User(
     var fullName : String,
     var roles : String,
     var eventos : List<String>,
+    var foto : String?,
     var id : UUID
 )

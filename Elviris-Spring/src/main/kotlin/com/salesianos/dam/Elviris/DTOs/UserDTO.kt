@@ -9,7 +9,8 @@ data class UserDTO (
         var fullName: String,
         var roles: String,
         var eventos : List<String>?,
-        val id: UUID? = null
+        val id: UUID? = null,
+        var foto : String? ? = null
 )
 
 fun User.toUserDTO() : UserDTO{
@@ -17,7 +18,7 @@ fun User.toUserDTO() : UserDTO{
     for (i  in eventos){
         lista.add(i.id.toString())
     }
-    return UserDTO(username, fullName, roles.joinToString(),lista, id)
+    return UserDTO(username, fullName, roles.joinToString(),lista, id,foto?.id)
 }
 
-fun User.toUserLoginDTO() = UserDTO(username, fullName, roles.joinToString(), mutableListOf(), id)
+fun User.toUserLoginDTO() = UserDTO(username, fullName, roles.joinToString(), mutableListOf(), id,foto?.id)

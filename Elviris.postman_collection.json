@@ -1,0 +1,490 @@
+{
+	"info": {
+		"_postman_id": "95d64de7-41b0-4e71-becc-457c7d711617",
+		"name": "Elviris",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "eventos",
+			"item": [
+				{
+					"name": "Todos",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiI1YWE2MWU1MC02YzcxLTQ4OGUtOTAzNy1lOGQ5ZDI3NGU3MzgiLCJleHAiOjE1OTIxNDI3MTYsImlhdCI6MTU5MTI3ODcxNiwiZnVsbG5hbWUiOiJNaWd1ZWwgQ2FtcG9zIiwicm9sZXMiOiJBRE1JTiJ9.45FNiOFQipfiSrFQsnd9NH5Xu1n-PJU2K7KUf-7TxnPWAziDOxYOpGDTSznoJhbLCl9lFTqPeye8SPoQ-poiqQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9000/eventos/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"eventos",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add reservar evento",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIzYWYzZDY2MS01OWIzLTQ5NzEtOGFhOC1jNzVjYmU3OWU0MTYiLCJleHAiOjE1OTEyOTM1MDIsImlhdCI6MTU5MDQyOTUwMiwiZnVsbG5hbWUiOiJKZXN1cyBDZWFjZXJvIEppbWVubyIsInJvbGVzIjoiVVNFUiJ9.Ge-n1f28ylZsNXPva-WuG-lY4DPKGaz3yuDthUwnwC3Gr_hnqdgBemqrwR9nsczLBgakVSDw28aoLoF8s04Xmg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9000/eventos/reserva/add/{IDEvento}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"eventos",
+								"reserva",
+								"add",
+								"{IDEvento}"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": "",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "remove reservar evento",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								},
+								{
+									"key": "accessToken",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI1ZTZmYjkzODU2NGI2NjAwMTdkMzdhN2EiLCJleHAiOjE1ODQ1NDg4MTU3NTYsImVtYWlsIjoiY0B0cmlhbmEuc2FsZXNpYW5vcy5lZHUifQ.PSU2PFTviMnj38745kNgi7VIh2vFvh23NNE5pH61Gos",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9000/eventos/reserva/{IDEvento}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"eventos",
+								"reserva",
+								"{IDEvento}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "eventos reservados",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiI1YWE2MWU1MC02YzcxLTQ4OGUtOTAzNy1lOGQ5ZDI3NGU3MzgiLCJleHAiOjE1OTIxNjU5NTEsImlhdCI6MTU5MTMwMTk1MSwiZnVsbG5hbWUiOiJNaWd1ZWwgQ2FtcG9zIiwicm9sZXMiOiJBRE1JTiJ9.AfxSnYA8s2ij3mkhatbuBbqu9WMZJQMfqdaJ0OrvFAsLDyPXI11s3DAfapLRWx9xJ9_bFdrglDI0m1py0R8Fyw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9000/eventos/reserva/me",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"eventos",
+								"reserva",
+								"me"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add Evento",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxNzFjYThhNy1kNjNiLTRjNWEtOTgyMS0yMTZlODdmYTBjNWMiLCJleHAiOjE1OTE5ODcyOTIsImlhdCI6MTU5MTEyMzI5MiwiZnVsbG5hbWUiOiJKZXN1cyBDZWFjZXJvIEppbWVubyIsInJvbGVzIjoiVVNFUiJ9.JoTpOE6BTvXjgb-iO2faabbiJcR88-7hmSvKvi9n-uuUt1wzDIHaHXWnFiYpVciX9FmHXpcSURQIVBuNTXhjsQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/C:/Users/cads9/Desktop/fondo.jpg"
+								},
+								{
+									"key": "nuevo",
+									"type": "file",
+									"src": "/C:/Users/cads9/Desktop/evento.json"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:9000/eventos/add",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"eventos",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Evento ID",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiI1YWE2MWU1MC02YzcxLTQ4OGUtOTAzNy1lOGQ5ZDI3NGU3MzgiLCJleHAiOjE1OTIxNjU5NTEsImlhdCI6MTU5MTMwMTk1MSwiZnVsbG5hbWUiOiJNaWd1ZWwgQ2FtcG9zIiwicm9sZXMiOiJBRE1JTiJ9.AfxSnYA8s2ij3mkhatbuBbqu9WMZJQMfqdaJ0OrvFAsLDyPXI11s3DAfapLRWx9xJ9_bFdrglDI0m1py0R8Fyw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9000/eventos/{IDEvento}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"eventos",
+								"{IDEvento}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit Evento",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiI1YWE2MWU1MC02YzcxLTQ4OGUtOTAzNy1lOGQ5ZDI3NGU3MzgiLCJleHAiOjE1OTIxNjU5NTEsImlhdCI6MTU5MTMwMTk1MSwiZnVsbG5hbWUiOiJNaWd1ZWwgQ2FtcG9zIiwicm9sZXMiOiJBRE1JTiJ9.AfxSnYA8s2ij3mkhatbuBbqu9WMZJQMfqdaJ0OrvFAsLDyPXI11s3DAfapLRWx9xJ9_bFdrglDI0m1py0R8Fyw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": []
+								},
+								{
+									"key": "edit",
+									"type": "file",
+									"src": []
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:9000/eventos/edit",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"eventos",
+								"edit"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Evento",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiI1YWE2MWU1MC02YzcxLTQ4OGUtOTAzNy1lOGQ5ZDI3NGU3MzgiLCJleHAiOjE1OTIxNjU5NTEsImlhdCI6MTU5MTMwMTk1MSwiZnVsbG5hbWUiOiJNaWd1ZWwgQ2FtcG9zIiwicm9sZXMiOiJBRE1JTiJ9.AfxSnYA8s2ij3mkhatbuBbqu9WMZJQMfqdaJ0OrvFAsLDyPXI11s3DAfapLRWx9xJ9_bFdrglDI0m1py0R8Fyw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9000/eventos/del/{IdEvento}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"eventos",
+								"del",
+								"{IdEvento}"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "user",
+			"item": [
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"username\" : \"admin@admin.com\",\n\t\"password\" : \"123456\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9000/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "me",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "accessToken",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiI1YWE2MWU1MC02YzcxLTQ4OGUtOTAzNy1lOGQ5ZDI3NGU3MzgiLCJleHAiOjE1OTIxNjU3NzgsImlhdCI6MTU5MTMwMTc3OCwiZnVsbG5hbWUiOiJNaWd1ZWwgQ2FtcG9zIiwicm9sZXMiOiJBRE1JTiJ9.xOd3rKyPBf05xDP0AiDHPw6fgCmtCMN5c4jCp23dVCaE8M3GTQ-Do8IhAkVu1mikGKAZ4WO2KER39j6xb5ML2w",
+									"type": "string"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9000/user/me",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"user",
+								"me"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "usuarios evento",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiI1YWE2MWU1MC02YzcxLTQ4OGUtOTAzNy1lOGQ5ZDI3NGU3MzgiLCJleHAiOjE1OTIxNjU5NTEsImlhdCI6MTU5MTMwMTk1MSwiZnVsbG5hbWUiOiJNaWd1ZWwgQ2FtcG9zIiwicm9sZXMiOiJBRE1JTiJ9.AfxSnYA8s2ij3mkhatbuBbqu9WMZJQMfqdaJ0OrvFAsLDyPXI11s3DAfapLRWx9xJ9_bFdrglDI0m1py0R8Fyw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9000/user/evento/{IDEvento}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"user",
+								"evento",
+								"{IDEvento}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"username\" : \"user@user.com\",\n\t\"fullname\" : \"Pepe\",\n\t\"password\" : \"123456\",\n\t\"password2\" : \"123456\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9000/user/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"user",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "edit Foto",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiI1YWE2MWU1MC02YzcxLTQ4OGUtOTAzNy1lOGQ5ZDI3NGU3MzgiLCJleHAiOjE1OTIxNjU5NTEsImlhdCI6MTU5MTMwMTk1MSwiZnVsbG5hbWUiOiJNaWd1ZWwgQ2FtcG9zIiwicm9sZXMiOiJBRE1JTiJ9.AfxSnYA8s2ij3mkhatbuBbqu9WMZJQMfqdaJ0OrvFAsLDyPXI11s3DAfapLRWx9xJ9_bFdrglDI0m1py0R8Fyw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": []
+								},
+								{
+									"key": "id",
+									"type": "file",
+									"src": []
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:9000/user/foto",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"user",
+								"foto"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}

@@ -1,6 +1,7 @@
 package com.example.elviris.ui.eventos
 
 import android.content.Context
+import android.content.Intent
 import android.util.Log
 import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
@@ -13,13 +14,17 @@ import android.widget.Toast
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.Observer
 import androidx.lifecycle.observe
+import coil.api.load
+import coil.transform.CircleCropTransformation
 import com.airbnb.lottie.LottieAnimationView
+import com.example.elviris.DetalleEventoActivity
 import com.example.elviris.R
 import com.example.elviris.api.response.Evento
 import com.example.elviris.common.Resource
 import com.example.elviris.di.MyApp
 import com.example.elviris.viewmodel.UserViewModel
 import kotlinx.android.synthetic.main.fragment_eventos.view.*
+import org.joda.time.LocalDate
 import javax.inject.Inject
 
 
@@ -36,6 +41,13 @@ class MyEventosRecyclerViewAdapter(
     init {
         mOnClickListener = View.OnClickListener { v ->
             val item = v.tag as Evento
+
+            if(rol == "ADMIN"){
+                var i= Intent(MyApp.instance, DetalleEventoActivity::class.java).apply {
+                    putExtra("id", item.id.toString())
+                }
+                MyApp.instance.startActivity(i)
+            }
         }
     }
 
@@ -54,12 +66,28 @@ class MyEventosRecyclerViewAdapter(
         holder.fecha.text = item.fecha
         holder.count.text = item.usuarios.count().toString()
 
+        var ahora = LocalDate.now()
+        var hasta = LocalDate(item.fecha.split("/")[2].toInt(),
+            item.fecha.split("/")[1].toInt(),
+            item.fecha.split("/")[0].toInt())
+        if( hasta < ahora || item.aforo <= item.usuarios.count()){
+            holder.reservar.visibility = View.GONE
+        }
+
+        if (item.foto != null){
+            holder.foto.load(item.foto){
+                crossfade(true)
+            }
+        }else{
+            holder.foto.load(R.drawable.ic_foto)
+        }
+
         if (reservas!!.contains(item.id)){
             holder.reservar.visibility = View.GONE
         }
 
         holder.reservar.setOnClickListener(View.OnClickListener {
-            userViewModel.reserverEvento(item.id)
+            userViewModel.reserverEvento(item.id.toString())
             userViewModel.reserva.observe(ctx ,Observer {
                 when(it) {
                     is Resource.Success -> {

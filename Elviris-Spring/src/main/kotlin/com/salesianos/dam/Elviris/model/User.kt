@@ -1,14 +1,19 @@
 package com.salesianos.dam.Elviris.model
 
+import com.salesianos.dam.Elviris.upload.ImgurImageAttribute
+import org.hibernate.annotations.Generated
+import org.hibernate.annotations.GenerationTime
 import org.springframework.security.core.GrantedAuthority
 import org.springframework.security.core.authority.SimpleGrantedAuthority
 import org.springframework.security.core.userdetails.UserDetails
+import java.time.LocalDateTime
 import java.util.*
 import javax.persistence.*
-import kotlin.collections.ArrayList
 import kotlin.collections.HashSet
 
+
 @Entity
+@SequenceGenerator(name="seq", initialValue=1)
 data class User(
 
         @Column(nullable = false, unique = true)
@@ -16,7 +21,7 @@ data class User(
 
         private var password: String,
 
-        var fullName : String,
+        var fullName: String,
 
         @ElementCollection(fetch = FetchType.EAGER)
         val roles: MutableSet<String> = HashSet(),
@@ -27,9 +32,11 @@ data class User(
 
         private val enabled: Boolean = true,
 
-        private val credentialsNonExpired : Boolean = true,
+        private val credentialsNonExpired: Boolean = true,
 
-        @Id @GeneratedValue val id : UUID? = null,
+        @Id @GeneratedValue val id: UUID? = null,
+
+        var foto: ImgurImageAttribute? = null,
 
         @ManyToMany(mappedBy="usuarios")
         var eventos: MutableList<Evento> = mutableListOf()
@@ -64,6 +71,12 @@ data class User(
         if (id == null)
             return super.hashCode()
         return id.hashCode()
+
+
+    }
+
+    override fun toString(): String {
+        return fullName
     }
 
 }

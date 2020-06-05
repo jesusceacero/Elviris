@@ -12,9 +12,9 @@ data class EventoDTO (
         var aforo : Int,
         @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
         var fecha : LocalDate,
-        var foto : String,
-        var usuarios : List<String>,
-        val id: UUID? = null
+        var usuarios : List<String>? = null,
+        val id: UUID? = null,
+        var foto : String? = null
 )
 
 fun Evento.toEventoDTO() : EventoDTO {
@@ -22,5 +22,5 @@ fun Evento.toEventoDTO() : EventoDTO {
         for (i  in usuarios){
               lista.add(i.id.toString())
         }
-        return EventoDTO(titulo,descripcion,aforo,fecha,foto,lista,id)
+        return EventoDTO(titulo,descripcion,aforo,fecha,lista,id,foto?.id)
 }

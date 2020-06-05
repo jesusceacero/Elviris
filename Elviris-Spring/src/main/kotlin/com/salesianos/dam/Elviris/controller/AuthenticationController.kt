@@ -7,6 +7,7 @@ import com.salesianos.dam.Elviris.DTOs.toUserLoginDTO
 import com.salesianos.dam.Elviris.model.User
 import com.salesianos.dam.Elviris.repository.UserRepository
 import com.salesianos.dam.Elviris.security.jwt.JwtTokenProvider
+import com.salesianos.dam.Elviris.services.UserService
 import org.springframework.security.access.prepost.PreAuthorize
 import org.springframework.security.authentication.AuthenticationManager
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken
@@ -24,7 +25,8 @@ import javax.validation.constraints.NotBlank
 class AuthenticationController(
         private val authenticationManager: AuthenticationManager,
         private val jwtTokenProvider: JwtTokenProvider,
-        private val repository: UserRepository
+        private val repository: UserRepository,
+        private val userService: UserService
 ) {
 
     @PostMapping("/auth/login")
@@ -47,7 +49,7 @@ class AuthenticationController(
 
     @PreAuthorize("isAuthenticated()")
     @GetMapping("/user/me")
-    fun me(@AuthenticationPrincipal user : User) = repository.usuarioID(user.id!!).toUserDTO()
+    fun me(@AuthenticationPrincipal user : User) = userService.userURL(userService.usuariosId(user.id!!).toUserDTO())
 
 
 

@@ -12,6 +12,9 @@ interface UserRepository : JpaRepository<User, UUID> {
     @Query("select distinct u from User u left join fetch u.eventos where u.id = :id")
     fun usuarioID(id : UUID) : User
 
+    @Query("select u from User u left join fetch u.eventos where :evento MEMBER OF u.eventos")
+    fun usuariosEvento(evento:Evento) : List<User>
+
 
     fun findByUsername(username : String) : Optional<User>
 

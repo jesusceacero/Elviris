@@ -5,12 +5,11 @@ import com.example.damkeep.api.response.LoginResponse
 import com.example.elviris.api.response.CreateUserDTO
 import com.example.elviris.api.response.Evento
 import com.example.elviris.api.response.User
+import okhttp3.MultipartBody
+import okhttp3.RequestBody
 import retrofit2.Call
 import retrofit2.Response
-import retrofit2.http.Body
-import retrofit2.http.GET
-import retrofit2.http.POST
-import retrofit2.http.Path
+import retrofit2.http.*
 
 interface ElvirisService {
 
@@ -34,4 +33,29 @@ interface ElvirisService {
 
     @POST("/eventos/reserva/del/{id}")
     suspend fun cancelarReserva(@Path("id")id: String) : Response<Evento>
+
+    @GET("/eventos/{id}")
+    suspend fun eventoId(@Path("id") id : String) : Response<Evento>
+
+    @GET("/user/evento/{id}")
+    suspend fun usuariosEvento(@Path("id") id : String) : Response<List<User>>
+
+    @Multipart
+    @POST("/eventos/add")
+    suspend fun addEvento(@Part file: MultipartBody.Part?,
+                          @Part("nuevo") e : RequestBody) : Response<Evento>
+
+
+    @Multipart
+    @PUT("/eventos/edit")
+    suspend fun editEvento(@Part file: MultipartBody.Part?,
+                          @Part("edit") e : RequestBody) : Response<Evento>
+
+    @DELETE("/eventos/del/{id}")
+    suspend fun deleteEvento(@Path("id") id : String) : Response<Void>
+
+    @Multipart
+    @PUT("/user/foto")
+    suspend fun editFoto(@Part file: MultipartBody.Part?,
+                         @Part("id") id : RequestBody) : Response<User>
 }

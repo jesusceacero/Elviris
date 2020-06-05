@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/fondo_login"
+    tools:context=".AddPutEventoActivity">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/imageView6"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/logo" />
+
+        <ImageView
+            android:id="@+id/imageViewFotoAddPut"
+            android:layout_width="100dp"
+            android:layout_height="150dp"
+            android:layout_marginTop="24dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView6"
+            app:srcCompat="@drawable/ic_foto" />
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="6dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageViewFotoAddPut">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#FDEBD8">
+
+                <EditText
+                    android:id="@+id/editTextTituloAddPut"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:ems="10"
+                    android:hint="Titulo"
+                    android:inputType="textPersonName"
+                    android:textColor="#000000"
+                    android:textColorHint="#919090"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <EditText
+                    android:id="@+id/editTextDescricionAddPut"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="8dp"
+                    android:height="150dp"
+                    android:elegantTextHeight="true"
+                    android:ems="10"
+                    android:hint="Descipción"
+                    android:inputType="textMultiLine"
+                    android:lines="1"
+                    android:maxLines="10"
+                    android:nestedScrollingEnabled="true"
+                    android:singleLine="false"
+                    android:textColor="#000000"
+                    android:textColorHint="#919090"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/editTextTituloAddPut" />
+
+                <EditText
+                    android:id="@+id/editTextAforoAddPut"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:ems="10"
+                    android:hint="Aforo"
+                    android:inputType="numberSigned"
+                    android:textColor="#000000"
+                    android:textColorHint="#919090"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/editTextDescricionAddPut" />
+
+                <TextView
+                    android:id="@+id/textView5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="Fecha:"
+                    android:textColor="#000000"
+                    android:textColorHint="#919090"
+                    app:layout_constraintStart_toStartOf="@+id/editTextAforoAddPut"
+                    app:layout_constraintTop_toBottomOf="@+id/editTextAforoAddPut" />
+
+                <EditText
+                    android:id="@+id/editTextDia"
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:ems="10"
+                    android:hint="Dia"
+                    android:inputType="numberSigned"
+                    android:textColor="#000000"
+                    android:textColorHint="#919090"
+                    app:layout_constraintStart_toStartOf="@+id/textView5"
+                    app:layout_constraintTop_toBottomOf="@+id/textView5" />
+
+                <EditText
+                    android:id="@+id/editTextAnio"
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="Año"
+                    android:inputType="numberSigned"
+                    android:textColor="#000000"
+                    android:textColorHint="#919090"
+                    app:layout_constraintEnd_toEndOf="@+id/editTextAforoAddPut"
+                    app:layout_constraintTop_toTopOf="@+id/editTextDia" />
+
+                <EditText
+                    android:id="@+id/editTextMes"
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="Mes"
+                    android:inputType="numberSigned"
+                    android:textColor="#000000"
+                    android:textColorHint="#919090"
+                    app:layout_constraintEnd_toStartOf="@+id/editTextAnio"
+                    app:layout_constraintStart_toEndOf="@+id/editTextDia"
+                    app:layout_constraintTop_toTopOf="@+id/editTextAnio" />
+
+                <Button
+                    android:id="@+id/buttonGuardatAddPut"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="16dp"
+                    android:text="Guardar"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/editTextMes" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>

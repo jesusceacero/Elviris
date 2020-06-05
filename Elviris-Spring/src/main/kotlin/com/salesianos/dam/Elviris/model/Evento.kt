@@ -1,5 +1,6 @@
 package com.salesianos.dam.Elviris.model
 
+import com.salesianos.dam.Elviris.upload.ImgurImageAttribute
 import java.time.LocalDate
 import java.util.*
 import javax.persistence.*
@@ -10,7 +11,7 @@ data class Evento(
         var descripcion : String,
         var aforo : Int,
         var fecha : LocalDate,
-        var foto : String,
+        var foto : ImgurImageAttribute? = null,
         @Id @GeneratedValue val id: UUID? = null,
         @ManyToMany(fetch = FetchType.LAZY)
         @JoinTable(name = "evento_user",

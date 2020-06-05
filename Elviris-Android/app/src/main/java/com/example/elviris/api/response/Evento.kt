@@ -7,7 +7,7 @@ data class Evento(
     var descripcion : String,
     var aforo : Int,
     var fecha : String,
-    var foto : String?,
-    var usuarios : List<String>,
-    var id : String
+    var foto : String? = null,
+    var usuarios : List<String> = ArrayList(),
+    var id : String? = null
 )

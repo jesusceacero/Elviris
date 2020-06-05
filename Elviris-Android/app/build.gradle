@@ -76,4 +76,7 @@ dependencies {
     implementation "com.airbnb.android:lottie:$lottieVersion"
 
     implementation 'net.danlew:android.joda:2.10.6'
+
+    //CircularImageView
+    implementation 'com.mikhaellopez:circularimageview:4.1.1'
 }

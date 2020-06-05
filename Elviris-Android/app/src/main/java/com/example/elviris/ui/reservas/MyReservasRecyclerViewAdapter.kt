@@ -9,6 +9,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.Observer
+import coil.api.load
 import com.example.elviris.R
 import com.example.elviris.api.response.Evento
 import com.example.elviris.common.Resource
@@ -47,6 +48,15 @@ class MyReservasRecyclerViewAdapter(
         holder.aforo.text = item.aforo.toString()
         holder.count.text= item.usuarios.count().toString()
         holder.fecha.text= item.fecha
+
+        Log.i("resreva", ""+item)
+        if (item.foto != null){
+            holder.cartel.load(item.foto){
+                crossfade(true)
+            }
+        }else{
+            holder.cartel.load(R.drawable.ic_foto)
+        }
 
         holder.cancelar.setOnClickListener(View.OnClickListener {
             eventosViewModel.cancelarReserva(item.id.toString())

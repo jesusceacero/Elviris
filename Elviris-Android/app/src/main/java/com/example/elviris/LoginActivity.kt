@@ -49,7 +49,7 @@ class LoginActivity : AppCompatActivity() {
                         tokenInterceptor.token = it.data?.token
                         var i= Intent(this, MainActivity::class.java).apply {
                         }
-                        MyApp.instance.startActivity(i)
+                        startActivity(i)
                         finish()
                     }
                     is Resource.Error ->{
@@ -69,7 +69,7 @@ class LoginActivity : AppCompatActivity() {
         register.setOnClickListener(View.OnClickListener {
             var i= Intent(this, RegisterActivity::class.java).apply {
             }
-            MyApp.instance.startActivity(i)
+            startActivity(i)
         })
     }
 

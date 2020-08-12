@@ -1,10 +1,10 @@
 # Proyecto Elviris
 
-Proyecto sobre la gestión de datos reservas de eventos en un Pub.
+Proyecto sobre la gestión de reservas de eventos en un Pub.
 
 Los Usuarios podran registrarse y loguearse en nuestra aplicación.
 Una vez logueados podran ver el listado de eventos que el pub les ofrece, reservar un evento si es que quedan plazas y no ha pasado la fecha, ver su listado reservas y su perfil (Pudiendo cambiar su foto de usuario).
-Los acministradores podran hacer lo mismos que los usuarios mas las funciones de administrador (ver detalle de los eventos con un listado de los usuarios reservados, editar eventos, añadir eventos y eliminar eventos).
+Los administradores podran hacer lo mismos que los usuarios mas las funciones de administrador (ver detalle de los eventos con un listado de los usuarios reservados, editar eventos, añadir eventos y eliminar eventos).
 
 
 ***
